@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/MarkovNormalAlgorythm.dir/main.cpp.o  -o MarkovNormalAlgorythm.exe -Wl,--out-implib,libMarkovNormalAlgorythm.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/Node.h
+
+/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/main.cpp
+iostream
+-
+fstream
+-
+Node.h
+/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/Node.h
+

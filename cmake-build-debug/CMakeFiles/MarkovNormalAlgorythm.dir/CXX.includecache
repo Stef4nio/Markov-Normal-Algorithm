@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/Node.h
+/cygdrive/e/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/Node.h
 
-/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/main.cpp
+/cygdrive/e/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/main.cpp
 iostream
 -
 fstream
 -
 Node.h
-/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/Node.h
+/cygdrive/e/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/Node.h
 

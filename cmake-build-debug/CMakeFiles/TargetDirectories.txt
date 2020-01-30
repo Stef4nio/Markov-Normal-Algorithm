@@ -1,3 +1,0 @@
-/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/cmake-build-debug/CMakeFiles/MarkovNormalAlgorythm.dir
-/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/cmake-build-debug/CMakeFiles/edit_cache.dir

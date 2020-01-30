@@ -20,12 +20,13 @@ void stringToLinkedList(Node<char>** list,char string[])
 template <typename T>
 void AddRangeToEnd(Node<T>* ListToBeModified,Node<T>* ListToBeAdded)
 {
-    while(ListToBeModified==NULL)
+    Node<T>* list = ListToBeModified;
+    while(list==NULL)
     {
-        ListToBeModified = ListToBeModified->NextNode;
+        list = ListToBeModified->NextNode;
     }
-    *ListToBeModified = Node<T>();
-    ListToBeModified->NextNode = ListToBeAdded;
+    //*ListToBeModified = Node<T>();
+    list->NextNode = ListToBeAdded;
 }
 
 bool findAndReplace(Node<char>** list,char findString[],char replaceString[])

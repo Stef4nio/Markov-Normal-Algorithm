@@ -1,8 +1,0 @@
-diff a/cmake-build-debug/cmake_install.cmake b/cmake-build-debug/cmake_install.cmake	(rejected hunks)
-@@ -40,5 +40,5 @@
- 
- string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-        "${CMAKE_INSTALL_MANIFEST_FILES}")
--file(WRITE "/cygdrive/f/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
-+file(WRITE "/cygdrive/e/STEF/WORKSPACE(For C++)/MarkovNormalAlgorythm/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
-      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

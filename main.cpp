@@ -22,13 +22,17 @@ Node<char>* stringToLinkedList(char string[])
 template <typename T>
 void AddRangeToEnd(Node<T>* ListToBeModified,Node<T>* ListToBeAdded)
 {
-    Node<T>* list = ListToBeModified;
-    while(list==NULL)
+    if(!ListToBeModified)
     {
-        list = ListToBeModified->NextNode;
+        *ListToBeModified = *ListToBeAdded;
     }
-    //*ListToBeModified = Node<T>();
-    list->NextNode = ListToBeAdded;
+    Node<T>* list = ListToBeModified;
+    while(list->NextNode)
+    {
+        list = list->NextNode;
+    }
+    //TODO: find out why and how ofter zero char occurs at the end of the list and edit this line accordingly
+    *list = *ListToBeAdded;
 }
 
 bool findAndReplace(Node<char>** list,char findString[],char replaceString[])
@@ -36,11 +40,14 @@ bool findAndReplace(Node<char>** list,char findString[],char replaceString[])
     Node<char>* currPosition = *list;
     int charsMatched = 0;
     Node<char>* firstMatchedChar;
-    while(currPosition!=NULL)
+    while(currPosition)
     {
         if(currPosition->Data == findString[charsMatched])
         {
-            firstMatchedChar = currPosition;
+            if(charsMatched == 0)
+            {
+                firstMatchedChar = currPosition;
+            }
             charsMatched++;
         } else
         {
@@ -48,8 +55,9 @@ bool findAndReplace(Node<char>** list,char findString[],char replaceString[])
         }
         if(findString[charsMatched] == '\0')
         {
-            Node<char>* replaceList = stringToLinkedList(findString);
+            Node<char>* replaceList = stringToLinkedList(replaceString);
             AddRangeToEnd(replaceList,currPosition->NextNode);
+            *firstMatchedChar = *replaceList;
             return true;
         }
         currPosition = currPosition->NextNode;
@@ -64,19 +72,13 @@ int main() {
     ifstream input("InputString.txt");
     char inputStr[255];
     input.getline(inputStr,255);
-    Node<char>* testList1;
+    char str[] = "es";
+    char str2[] = "se";
     Node<char>* string;
-    Node<char>* testList2;
-    testList1 = stringToLinkedList(in1);
-    testList2 = stringToLinkedList(in2);
     string = stringToLinkedList(inputStr);
-
     cout << "Hello, World!" << std::endl;
 
-
-
-    AddRangeToEnd(testList1,testList2);
-    cout<<"adding complete";
+    cout<<findAndReplace(&string,str,str2);
 
     return 0;
 }

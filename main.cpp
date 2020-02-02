@@ -1,17 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include "Node.h"
+#include "NodeFactory.h"
 #include <cstring>
 
 using namespace std;
 
 Node<char>* stringToLinkedList(char string[])
 {
-    Node<char>* currList = new Node<char>;
+    Node<char>* currList = NodeFactory::CreateNode<char>();
     Node<char>* tempNextNode;
     for(int i = strlen(string); i > 0; i--)
     {
-        tempNextNode = new Node<char>;
+        tempNextNode = NodeFactory::CreateNode<char>();
         tempNextNode->Data = string[i-1];
         tempNextNode->NextNode = currList;
         currList = tempNextNode;
@@ -72,8 +73,8 @@ int main() {
     ifstream input("InputString.txt");
     char inputStr[255];
     input.getline(inputStr,255);
-    char str[] = "es";
-    char str2[] = "se";
+    char str[] = "dic";
+    char str2[] = "cockBlya";
     Node<char>* string;
     string = stringToLinkedList(inputStr);
     cout << "Hello, World!" << std::endl;

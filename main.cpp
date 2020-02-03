@@ -2,11 +2,11 @@
 #include <fstream>
 #include "Node.h"
 #include "NodeFactory.h"
-#include <cstring>
+#include "StringList.h"
 
 using namespace std;
 
-Node<char>* stringToLinkedList(char string[])
+/*Node<char>* stringToLinkedList(char string[])
 {
     Node<char>* currList = NodeFactory::CreateNode<char>();
     Node<char>* tempNextNode;
@@ -18,22 +18,6 @@ Node<char>* stringToLinkedList(char string[])
         currList = tempNextNode;
     }
     return currList;
-}
-
-template <typename T>
-void AddRangeToEnd(Node<T>* ListToBeModified,Node<T>* ListToBeAdded)
-{
-    if(!ListToBeModified)
-    {
-        *ListToBeModified = *ListToBeAdded;
-    }
-    Node<T>* list = ListToBeModified;
-    while(list->NextNode)
-    {
-        list = list->NextNode;
-    }
-    //TODO: find out why and how ofter zero char occurs at the end of the list and edit this line accordingly
-    *list = *ListToBeAdded;
 }
 
 bool findAndReplace(Node<char>** list,char findString[],char replaceString[])
@@ -57,30 +41,29 @@ bool findAndReplace(Node<char>** list,char findString[],char replaceString[])
         if(findString[charsMatched] == '\0')
         {
             Node<char>* replaceList = stringToLinkedList(replaceString);
-            AddRangeToEnd(replaceList,currPosition->NextNode);
+            replaceList->AddRangeToEnd(currPosition->NextNode);
             *firstMatchedChar = *replaceList;
             return true;
         }
         currPosition = currPosition->NextNode;
     }
     return false;
-}
+}*/
 
 int main() {
-    char in1[] = "lol";
-    char in2[] = "kek";
-    cout << "Hello, World!" << std::endl;
     ifstream input("InputString.txt");
     char inputStr[255];
     input.getline(inputStr,255);
-    char str[] = "dic";
-    char str2[] = "cockBlya";
-    Node<char>* string;
-    string = stringToLinkedList(inputStr);
-    cout << "Hello, World!" << std::endl;
+    char str[] = "234";
+    char str2[] = "228";
+    //Node<char>* string;
+    //string = stringToLinkedList(inputStr);
+    StringList stringlist;
+    stringlist.SetString(inputStr);
+    stringlist.FindAndReplace(str,str2);
+    cout<<stringlist.GetString();
+    //cout<<findAndReplace(&string,str,str2);
 
-    cout<<findAndReplace(&string,str,str2);
-
-    return 0;
+return 0;
 }
 

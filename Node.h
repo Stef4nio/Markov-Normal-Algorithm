@@ -9,6 +9,20 @@ template <typename T>
 struct Node {
     T Data;
     Node<T>* NextNode;
+public:
+    void AddRangeToEnd(Node<T>* ListToBeAdded)
+    {
+        if(!this)
+        {
+            *this = *ListToBeAdded;
+        }
+        Node<T>* list = this;
+        while(list->NextNode)
+        {
+            list = list->NextNode;
+        }
+        *list = *ListToBeAdded;
+    }
 };
 
 

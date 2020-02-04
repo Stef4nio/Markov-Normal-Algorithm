@@ -8,6 +8,7 @@
 Node<char>* StringToLinkedList(char string[])
 {
     Node<char>* result = NodeFactory::CreateNode<char>();
+    result->Data = '*';
     Node<char>* tempNextNode;
     for(int i = strlen(string); i > 0; i--)
     {

@@ -13,9 +13,10 @@ class SubstitutionManager
 {
 public:
     void AddSubstitution(char findStr[], char replaceStr[], bool isFinish);
-    void ProcessString(StringList string);
+    void ProcessString(StringList* string);
 private:
     Node<Substitution>* _substitutionList;
+    Node<Substitution>* _lastElement;
 };
 
 

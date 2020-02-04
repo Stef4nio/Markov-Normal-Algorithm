@@ -5,7 +5,7 @@
 #ifndef MARKOVNORMALALGORYTHM_SUBSTITUTIONMANAGER_H
 #define MARKOVNORMALALGORYTHM_SUBSTITUTIONMANAGER_H
 
-#include "Node.h"
+#include "StringList.h"
 #include "NodeFactory.h"
 #include "Substitution.h"
 
@@ -13,7 +13,7 @@ class SubstitutionManager
 {
 public:
     void AddSubstitution(char findStr[], char replaceStr[], bool isFinish);
-    void ProcessString(Node<char>** string);
+    void ProcessString(StringList string);
 private:
     Node<Substitution>* _substitutionList;
 };

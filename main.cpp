@@ -54,8 +54,8 @@ int main() {
     ifstream input("InputString.txt");
     char inputStr[255];
     input.getline(inputStr,255);
-    char str[] = "234";
-    char str2[] = "228";
+    char str[] = "34";
+    char str2[] = "1337";
     //Node<char>* string;
     //string = stringToLinkedList(inputStr);
     StringList stringlist;

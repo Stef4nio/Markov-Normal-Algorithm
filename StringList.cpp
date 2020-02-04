@@ -22,20 +22,20 @@ Node<char>* StringToLinkedList(char string[])
 void StringList::SetString(char string[])
 {
     stringList = StringToLinkedList(string);
+    UpdateString();
 }
 
-char* StringList::GetString()
+void StringList::UpdateString()
 {
-    char *string;
     int count = 0;
     Node<char>* tempList = stringList;
     while (tempList)
     {
-        string[count] = tempList->Data;
+        value[count] = tempList->Data;
         tempList = tempList->NextNode;
         count++;
     }
-    return string;
+    //return string;
 }
 
 void StringList::AddRangeToEnd(char *string)
@@ -43,11 +43,13 @@ void StringList::AddRangeToEnd(char *string)
     StringList range;
     range.SetString(string);
     stringList->AddRangeToEnd(range.stringList);
+    UpdateString();
 }
 
 void StringList::AddRangeToEnd(StringList string)
 {
     stringList->AddRangeToEnd(string.stringList);
+    UpdateString();
 }
 
 bool StringList::FindAndReplace(char findString[], char replaceString[])
@@ -73,9 +75,15 @@ bool StringList::FindAndReplace(char findString[], char replaceString[])
             Node<char>* replaceList = StringToLinkedList(replaceString);
             replaceList->AddRangeToEnd(currPosition->NextNode);
             *firstMatchedChar = *replaceList;
+            UpdateString();
             return true;
         }
         currPosition = currPosition->NextNode;
     }
     return false;
 }
+
+char *StringList::GetString() {
+    return value;
+}
+

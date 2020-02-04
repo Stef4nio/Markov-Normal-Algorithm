@@ -15,9 +15,13 @@ public:
     bool FindAndReplace(char findString[],char replaceString[]);
     void AddRangeToEnd(char *string);
     void AddRangeToEnd(StringList string);
-    char* GetString();
+
+    char *GetString();
+
 private:
+    void UpdateString();
     Node<char>* stringList;
+    char value[255];
 };
 
 

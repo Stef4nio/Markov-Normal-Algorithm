@@ -13,6 +13,11 @@ struct Substitution
     bool IsFinishing = false;
 public:
     Substitution(char findString[], char replaceString[], bool isFinishing);
+    Substitution(char initString[]);
+    Substitution()
+    {
+        IsFinishing = false;
+    }
 };
 
 

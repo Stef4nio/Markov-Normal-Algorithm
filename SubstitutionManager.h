@@ -13,10 +13,13 @@ class SubstitutionManager
 {
 public:
     void AddSubstitution(char findStr[], char replaceStr[], bool isFinish);
+    void AddSubstitution(char initStr[]);
     void ProcessString(StringList* string);
 private:
-    Node<Substitution>* _substitutionList;
-    Node<Substitution>* _lastElement;
+    void PushSubstitutionToList(Substitution substitution);
+    Node<Substitution>* _substitutionList = NodeFactory::CreateNode<Substitution>();
+    Node<Substitution>* _lastElement = _substitutionList;
+    bool isInitialized = false;
 };
 
 

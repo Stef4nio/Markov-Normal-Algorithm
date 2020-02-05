@@ -5,13 +5,30 @@
 #include "SubstitutionManager.h"
 #include "Substitution.h"
 
+void SubstitutionManager::PushSubstitutionToList(Substitution substitution)
+{
+    if(!isInitialized)
+    {
+        _lastElement->Data = substitution;
+        isInitialized = true;
+        return;
+    }
+    Node<Substitution>* currNode = NodeFactory::CreateNode<Substitution>();
+    currNode->Data = substitution;
+    _lastElement->NextNode = currNode;
+    _lastElement = currNode;
+}
+
 void SubstitutionManager::AddSubstitution(char *findStr, char *replaceStr, bool isFinish)
 {
     Substitution currSubstitution = Substitution(findStr,replaceStr,isFinish);
-    Node<Substitution>* currNode = NodeFactory::CreateNode<Substitution>();
-    currNode->Data = currSubstitution;
-    _lastElement->NextNode = currNode;
-    _lastElement = currNode;
+    PushSubstitutionToList(currSubstitution);
+}
+
+void SubstitutionManager::AddSubstitution(char *initStr)
+{
+    Substitution currSubstitution = Substitution(initStr);
+    PushSubstitutionToList(currSubstitution);
 }
 
 void SubstitutionManager::ProcessString(StringList* string)

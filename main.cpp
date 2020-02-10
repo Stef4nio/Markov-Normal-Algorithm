@@ -21,17 +21,10 @@ int main() {
         substitutionStream.getline(substitutionInitStr,255);
         manager.AddSubstitution(substitutionInitStr);
     }
-    //manager.ProcessString()
-    char str[] = "34";
-    char str2[] = "1337";
-    //Node<char>* string;
-    //string = stringToLinkedList(inputStr);
     StringList stringlist;
     stringlist.SetString(inputStr);
     manager.ProcessString(&stringlist);
-    //stringlist.FindAndReplace(str,str2);
     cout<<stringlist.GetString();
-    //cout<<findAndReplace(&string,str,str2);
 
 return 0;
 }

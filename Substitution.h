@@ -18,6 +18,9 @@ public:
     {
         IsFinishing = false;
     }
+
+private:
+    void CheckForZeroChars();
 };
 
 

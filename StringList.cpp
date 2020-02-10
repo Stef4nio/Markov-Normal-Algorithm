@@ -8,12 +8,11 @@
 Node<char>* StringToLinkedList(char string[])
 {
     Node<char>* result = NodeFactory::CreateNode<char>();
-    result->Data = '*';
     Node<char>* tempNextNode;
-    for(int i = strlen(string); i > 0; i--)
+    for(int i = strlen(string)-1; i >= 0; i--)
     {
         tempNextNode = NodeFactory::CreateNode<char>();
-        tempNextNode->Data = string[i-1];
+        tempNextNode->Data = string[i];
         tempNextNode->NextNode = result;
         result = tempNextNode;
     }
@@ -57,7 +56,12 @@ bool StringList::FindAndReplace(char findString[], char replaceString[])
 {
     Node<char>* currPosition = this->stringList;
     int charsMatched = 0;
-    Node<char>* firstMatchedChar;
+    Node<char>* firstMatchedChar = currPosition;
+    if(!strcmp(findString,"2b"))
+    {
+        charsMatched++;
+        charsMatched--;
+    }
     while(currPosition)
     {
         if(currPosition->Data == findString[charsMatched])
@@ -69,12 +73,30 @@ bool StringList::FindAndReplace(char findString[], char replaceString[])
             charsMatched++;
         } else
         {
+            if(charsMatched == 1)
+            {
+                charsMatched = 0;
+                continue;
+            }
             charsMatched = 0;
         }
         if(findString[charsMatched] == '\0')
         {
             Node<char>* replaceList = StringToLinkedList(replaceString);
-            replaceList->AddRangeToEnd(currPosition->NextNode);
+            if(charsMatched == 0)
+            {
+                if (currPosition)
+                {
+                    replaceList->AddRangeToEnd(currPosition);
+                }
+            }
+            else
+            {
+                if (currPosition->NextNode)
+                {
+                    replaceList->AddRangeToEnd(currPosition->NextNode);
+                }
+            }
             *firstMatchedChar = *replaceList;
             UpdateString();
             return true;

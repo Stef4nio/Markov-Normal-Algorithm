@@ -4,6 +4,7 @@
 
 #include "SubstitutionManager.h"
 #include "Substitution.h"
+#include <iostream>
 
 void SubstitutionManager::PushSubstitutionToList(Substitution substitution)
 {
@@ -33,24 +34,26 @@ void SubstitutionManager::AddSubstitution(char *initStr)
 
 void SubstitutionManager::ProcessString(StringList* string)
 {
-    bool isChanged = false;
+    //bool isChanged = false;
     Node<Substitution>* listCopy = _substitutionList;
     while(listCopy!= nullptr)
     {
         Substitution currSubstitution = listCopy->Data;
         if((*string).FindAndReplace(currSubstitution.FindString,currSubstitution.ReplaceString))
         {
-            isChanged = true;
+            std::cout<<string->GetString()<<std::endl;
+            //isChanged = true;
             if(currSubstitution.IsFinishing)
             {
                 break;
             }
-        }
-        listCopy = listCopy->NextNode;
-        if(listCopy == nullptr && isChanged)
-        {
             listCopy = _substitutionList;
         }
+        listCopy = listCopy->NextNode;
+        /*if(listCopy == nullptr && isChanged)
+        {
+            listCopy = _substitutionList;
+        }*/
     }
 
 }

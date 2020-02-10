@@ -15,7 +15,6 @@ public:
     bool FindAndReplace(char findString[],char replaceString[]);
     void AddRangeToEnd(char *string);
     void AddRangeToEnd(StringList string);
-    static const char EMPTY_SYMBOL = '*';
     char *GetString();
 
 private:

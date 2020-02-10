@@ -15,6 +15,7 @@ public:
         if(!this)
         {
             *this = *ListToBeAdded;
+            return;
         }
         Node<T>* list = this;
         while(list->NextNode)

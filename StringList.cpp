@@ -73,7 +73,7 @@ bool StringList::FindAndReplace(char findString[], char replaceString[])
             charsMatched++;
         } else
         {
-            if(charsMatched == 1)
+            if(currPosition->Data == findString[0])
             {
                 charsMatched = 0;
                 continue;
